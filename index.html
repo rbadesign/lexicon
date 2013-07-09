@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>Lexicon WYSIWYG editor</title>
+
+        <link rel="stylesheet" href="css/jquery.mobile.css">
+
+        <!-- Extra Codiqa features -->
+        <link rel="stylesheet" href="css/codiqa.ext.css">
+        <link rel="stylesheet" href="css/fileExplorer.css">
+        <link rel="stylesheet" href="css/lexicon.css">
+        
+        <script src="phonegap.js"></script>
+        
+        <!-- jQuery and jQuery Mobile -->
+        <script src="js/jquery.js"></script>
+        <script type="text/javascript">
+			$(document).bind('mobileinit',function(){
+				$.mobile.selectmenu.prototype.options.nativeMenu = false;
+				$.support.cors = true;
+				$.mobile.allowCrossDomainPages = true;
+				$.mobile.phonegapNavigationEnabled = true;
+				$.mobile.page.prototype.options.domCache = true;
+				$.mobile.ajaxEnabled=true;
+				$.mobile.pushStateEnabled=true;
+			});
+        </script>
+        <script src="js/jquery.mobile.js"></script>
+        
+        <!-- Extra Codiqa features -->
+        <script src="js/codiqa.ext.js"></script>
+        
+		<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+
+        <script src="js/fileExplorer.js"></script>
+        <script src="js/snippets.js"></script>
+        <script src="js/lexicon.js"></script>
+
+    </head>
+    <body>
+        <div data-role="page" id="editor">
+            <div data-role="header" data-position="fixed" id="main-box-header">
+                <h1>Lexicon</h1>
+            </div>
+            <div data-role="content">
+                <form method="post">
+                    <textarea data-role="none" name="content" style="width:100%" id="editor1"></textarea>
+                </form>
+            </div>
+            <div data-role="footer" data-position="fixed" id="main-box-footer">
+            </div>
+        </div>
+
+        <div data-role="page" id="file-explorer">
+            <div data-role="header" data-position="fixed">
+                  <a id="backBtn" href="#" data-icon="arrow-l">Back</a>
+                  <h1>File Explorer</h1>
+                  <a id="homeBtn" href="index.html" data-icon="home" data-transition="pop">Home</a>
+            </div>
+            <div data-role="content">
+                  <h2>Folder</h2>
+      
+                  <div class="ui-grid-c" id="dirContent">
+                      <!--<div class="ui-block-a">
+                          <div class="folder"><p>folder name</p></div>
+                      </div>
+                      <div class="ui-block-b">
+                          <div class="folder"><p>folder name</p></div>
+                      </div>
+                      <div class="ui-block-c">
+                          <div class="folder"><p>folder name</p></div>
+                      </div>
+                      <div class="ui-block-d">
+                          <div class="folder"><p>folder name</p></div>
+                      </div>
+                   next row
+                      <div class="ui-block-a">
+                          <div class="file"><p>file name</p></div>
+                      </div>
+                      <div class="ui-block-b">
+                          <div class="file"><p>file name</p></div>
+                      </div>
+                      <div class="ui-block-c">
+                          <div class="file"><p>file name</p></div>
+                      </div>
+                      <div class="ui-block-d">
+                          <div class="file"><p>file name</p></div>
+                      </div>-->
+                  </div>
+      
+                  <a id="menu" href="#menuOptions" data-rel="dialog">file details</a>
+                  <a id="get_file_details" href="#fileDetails" data-rel="dialog">file details</a>
+            </div>
+        </div>
+
+        <div id="menuOptions" data-role="page">
+            <div data-role="header">
+                    <h1>Choose</h1>
+              </div>
+              <div data-role="content">
+                <input type="button" id="openBtn" data-theme="e" value="Open">
+                <input type="button" id="copyBtn" value="Copy">
+                <input type="button" id="moveBtn" value="Move">
+                <input type="button" id="pasteBtn" value="Paste" disabled>
+                <input type="button" id="deleteBtn" value="Delete">
+              </div>
+        </div>
+        
+        <div id="fileDetails" data-role="page">
+            <div data-role="header">
+                    <h1>File</h1>
+              </div>
+              <div id="file_details" data-role="content"></div>
+        </div>
+   </body>
+</html>
